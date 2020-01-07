@@ -26,10 +26,16 @@ class Example(QWidget):
 
     def mouseMoveEvent(self, event):
         x, y = event.x(), event.y()
-        if x not in range(0, 225):
-            x = self.label.x()
+                if x not in range(0, 225):
+            if x > 0:
+                x = 225
+            elif x < 225:
+                x = 0
         if y not in range(0, 250):
-            y = self.label.y()
+            if y > 0:
+                y = 255
+            elif y < 250:
+                y = 0
         if x != self.label.x() or y != self.label.y():
             self.label.move(x, y)
 
